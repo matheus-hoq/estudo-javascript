@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+
+    <script>
+
+        var nota = 15;
+        var res;
+        
+        //Aprovado com louvor > 95
+        //Aprovado     >=60
+        //Recuperação  >=40 && <60
+        //Reprovado    <40   
+
+        if(nota >= 95){
+            res = "Parabéns, você foi aprovado com louvor!";
+        }else if(nota >= 60){
+            res = "Parabéns, você foi aprovado!";
+        }else if(nota >= 40){
+            res = "Você está de recuperação!";
+        }else if(nota > 20){
+            res = "Infelizmente você foi reprovado :(";
+        }else{
+            res = "Infelizmente você foi reprovado com louvor :(";            
+        }
+
+        document.write(res);
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
