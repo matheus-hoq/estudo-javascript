@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+
+    <script>
+
+        var num;//Máximo 10
+
+        try{
+            num=prompt("Digite um valor: ");
+                if(num>10){
+                    throw new Error("Valor inválido! <br> O valor deve ser menor ou igual a 10.<br>");
+            }            
+            document.write("Valor: "+num)
+        }catch(err){
+            document.write("Erro: " + err.message)
+        }finally{
+            document.write("<br>Fim do tratamento")
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
