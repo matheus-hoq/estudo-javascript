@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+</head>
+<style>
+    #img{
+        width:200px;
+        height:379px;    
+    }
+    .s1{
+        background-image:url("imgs/s1.jpg");
+    }
+    .s2{
+        background-image:url("imgs/s2.jpg");
+    }
+    .s3{
+        background-image:url("imgs/s3.jpg");
+    }
+</style>
+<script>
+    function trocaImg(s){
+    var obj = document.getElementById("img");
+    if(s==1){
+        obj.setAttribute("class","s1");
+    }else if(s==2){
+        obj.setAttribute("class","s2");
+    }else if(s==3){
+        obj.setAttribute("class","s3");
+    }
+}
+
+    function removerImg(){
+        var obj = document.getElementById("img");
+        obj.removeAttribute("class");
+    }
+    function verifica(){
+        var obj = document.getElementById("img");
+        if(obj.hasAttribute("class")){
+            alert("Atributo class está na tag")
+        }else{
+            alert("Sem atributo class")
+        }
+    }
+</script>
+<body>
+    
+    <button onclick="trocaImg(1)">Img 1</button>
+    <button onclick="trocaImg(2)">Img 2</button>
+    <button onclick="trocaImg(3)">Img 3</button>
+    <button onclick="removerImg()">Remover Img</button>
+    <button onclick="verifica()">Verifica</button>
+    <div id="img"></div>
+
+</body>
+</html>
