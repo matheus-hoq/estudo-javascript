@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+
+    <style>
+        #quad{
+            border: 1px solid #000;
+            background-color: #f00;
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+
+    <script>
+
+        function contador(min, max){
+            document.write(min+"<br>");
+            if(min < max){
+                contador(++min,max);
+            }
+        }
+
+        //contador(0,10)
+
+        function fatorial(n){
+            if(n == 1){
+                return 1;
+            }
+            return n * fatorial(n-1);
+        }
+        //document.write(fatorial(5));
+
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="quad"></div>
+
+    <script>
+        var obj = document.getElementById("quad")
+        var ang = 0;
+        var anime;
+        function gira(){
+            obj.style.transform = "rotate("+ ang +"deg)";
+            ang++;
+            if(ang>360){
+                ang = 0;
+            }
+            anima = requestAnimationFrame(gira);
+        }
+        gira();
+    </script>
+
+</body>
+</html>
