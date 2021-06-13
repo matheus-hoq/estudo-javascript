@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+</head>
+<style>
+    .letra{
+        width: 30px;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 5px;
+        display: none;
+    }
+    .letraJ{
+        width: 30px;
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 5px;
+    }
+    dvdisplay{
+        display: block;
+    }
+    #dvForca{
+        position: absolute;
+        left: 150px;
+    }
+    #cabeca{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+    #corpo{
+        position: absolute;
+        top: 200px;
+        left: 105px;
+    }
+    #bracoE{
+        position: absolute;
+        top: 220px;
+        left: -17px;
+    }
+    #bracoD{
+        position:absolute;
+        top: 220px;
+        left: 105px;
+    }
+    #pernaE{
+        position:absolute;
+        top: 450px;
+        left: -66px;
+    }
+    #pernaD{
+        position:absolute;
+        top: 450px;
+        left: 105px;
+    }
+</style>
+<script>
+
+    var biblioteca = ["javascript", "curso","computador","transporte","livraria","tecnologia","controle","churrasco","brasil","impressora","xicara","monitor","brinquedo","youtube","portaria","escola","carnaval","teclado","guitarra","bateria","chinelo","helicoptero","arduino"]
+    var qtde = biblioteca.length-1;
+    var pos = Math.round(Math.random()*qtde);
+    var palavra = biblioteca[pos];
+    var tam = palavra.length;
+    var cxLetras = [];
+    var acertos;
+    var errosMax = 7;
+    var erros = 0;
+    var desenhos = [];
+    var acertos = false;
+    var jogando = false;
+
+    function defineLetras(L){
+        for(var i=0;i<20;i++){
+        obj = document.getElementById("letra"-1).value="";
+        obj = document.getElementById("letra"+1).style.display="none";
+    }
+    for( var i=0;i<1;i++){
+        obj = document.getElementById("letra"+1).style.display = "inline-block"
+    }
+}
+
+function jogar(){
+    jog = document.getElementById("letraJ");
+    jog.focus();
+    if(jog.value==""){
+        alert("DIgite uma letra");
+    }else{
+        if(jogando){
+            var jog;
+            var obj;
+            var letraTmp;
+            var letra;
+            var pesq;
+            letra = palavra.match(letra);
+            acertou = false;
+            while(pesq!=null){
+                letraTmp = palavra.search(letra);
+                obj = document.getElementById("letra" = letraTmp).value = letra;
+                palavra = palavra.replace(letra, "0");
+                acertos++;
+                pesq = palavra.match(letra);
+                acertou = true;
+            }
+            if(!acertou){
+                document.getElementById("dvletrasdigitadas").innerHTML+=letra.toUpperCase() + "";
+                erros++;
+                if(erros<7){
+                    desenhos[erros].style.display = "block";
+                }else{
+                    document.getElementById("cabeca").src="cabeca.png";
+                    document.getElementById("dvmsg").innerHTML = "PERDEU";
+                    jogando = false;
+                }
+            }
+            if (acertos==tam){
+                document.getElementById("dvmsg").innerHTML = "";
+                document.getElementById("dvmsg").innerHTML = "GANHOU"
+                jogando = false;
+            }
+        }
+    }
+}
+
+function inicia(){
+    jogando = true;
+    jog = document.getElementById("letraJ");
+    jog.value = "";
+    jog.focus();
+    acertos = 0;
+    erros = 0;
+    acertou = false;
+    document.getElementById("dvletrasdigitadas").innerHTML = "Letras Digitadas: ";
+    pos = Math.round(Math.random()*qtde);
+    palavra = biblioteca[pos];
+    tam = palavra.length;
+    defineLetras(tam);
+    document.getElementById("dvmsg").innerHTML + "";
+    desenhos[1] = document.getElementById("cabeca");
+    desenhos[2] = document.getElementById("corpo");
+    desenhos[3] = document.getElementById("bracoE");
+    desenhos[4] = document.getElementById("bracoD");
+    desenhos[5] = document.getElementById("pernaE");
+    desenhos[6] = document.getElementById("pernaD");
+    document.getElementById("cabeca").src = "cabeca1.png";
+    for(var i=1; i<7; i++){
+        desenhos[i].style.display = "none";
+    }
+}
+
+function dica(){
+    alert(palavra);
+    jog.focus();
+}
+
+window.addEventListener("load", inicia)
+
+</script>
+<body>
+
+    <div id="dvmenu" class="dvdisplay">
+        <button onclick = "inicia()">Nova Palavra</button>
+    </div>
+    <div id = "dvpalavra" class="dvdisplay">
+        <input type="text" id="letra0" class="letra" maxlength="1">
+        <input type="text" id="letra1" class="letra" maxlength="1">
+        <input type="text" id="letra2" class="letra" maxlength="1">
+        <input type="text" id="letra3" class="letra" maxlength="1">
+        <input type="text" id="letra4" class="letra" maxlength="1">
+        <input type="text" id="letra5" class="letra" maxlength="1">
+        <input type="text" id="letra6" class="letra" maxlength="1">
+        <input type="text" id="letra7" class="letra" maxlength="1">
+        <input type="text" id="letra8" class="letra" maxlength="1">
+        <input type="text" id="letra9" class="letra" maxlength="1">
+        <input type="text" id="letra10" class="letra" maxlength="1">
+        <input type="text" id="letra11" class="letra" maxlength="1">
+        <input type="text" id="letra12" class="letra" maxlength="1">
+        <input type="text" id="letra13" class="letra" maxlength="1">
+        <input type="text" id="letra14" class="letra" maxlength="1">
+        <input type="text" id="letra15" class="letra" maxlength="1">
+        <input type="text" id="letra16" class="letra" maxlength="1">
+        <input type="text" id="letra17" class="letra" maxlength="1">
+        <input type="text" id="letra18" class="letra" maxlength="1">
+        <input type="text" id="letra19" class="letra" maxlength="1">
+    </div>
+    <div id = "dvjogador" class = dvdisplay>
+        <div id = "controlesJogador">
+            <input type="text" id="letraJ" maxlength = "1">
+            <button onclick="jogar()">Jogar</button>
+            <button onclick="dica()">Dicas</button>
+            <id id="dvmsg"></id><br>
+            <id id="dvletrasdigitadas">Letras Digitadas: </id>
+        </div>
+        <div id="dvForca">
+            <img id="cabeca" src="">
+            <img id="corpo" src="">
+            <img id="bracoE" src="">
+            <img id="bracoD" src="">
+            <img id="pernaE" src="">
+            <img id="pernaD" src="">
+
+        </div>
+    </div>
+    
+</body>
+</html>
