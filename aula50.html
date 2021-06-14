@@ -72,10 +72,11 @@
     var errosMax = 7;
     var erros = 0;
     var desenhos = [];
-    var acertos = false;
+    var acertou = false;
     var jogando = false;
 
     function defineLetras(L){
+        var obj;
         for(var i=0;i<20;i++){
         obj = document.getElementById("letra"-1).value="";
         obj = document.getElementById("letra"+1).style.display="none";
@@ -190,7 +191,7 @@ window.addEventListener("load", inicia)
     </div>
     <div id = "dvjogador" class = dvdisplay>
         <div id = "controlesJogador">
-            <input type="text" id="letraJ" maxlength = "1">
+            <input type="text" id="letraJ" class = "letraJ" maxlength = "1">
             <button onclick="jogar()">Jogar</button>
             <button onclick="dica()">Dicas</button>
             <id id="dvmsg"></id><br>
