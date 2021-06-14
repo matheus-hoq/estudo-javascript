@@ -32,7 +32,7 @@
     #cabeca{
         position: absolute;
         top: 0px;
-        left: 0px;
+        left: 120px;
     }
     #corpo{
         position: absolute;
@@ -47,17 +47,17 @@
     #bracoD{
         position:absolute;
         top: 220px;
-        left: 105px;
+        left: 320px;
     }
     #pernaE{
         position:absolute;
         top: 450px;
-        left: -66px;
+        left: 50px;
     }
     #pernaD{
         position:absolute;
         top: 450px;
-        left: 105px;
+        left: 255px;
     }
 </style>
 <script>
@@ -74,36 +74,39 @@
     var desenhos = [];
     var acertou = false;
     var jogando = false;
+    var jog;
 
-    function defineLetras(L){
+    function defineLetras(l){
         var obj;
         for(var i=0;i<20;i++){
-        obj = document.getElementById("letra"-1).value="";
-        obj = document.getElementById("letra"+1).style.display="none";
+        obj = document.getElementById("letra"+i).value="";
+        obj = document.getElementById("letra"+i).style.display="none";
     }
-    for( var i=0;i<1;i++){
-        obj = document.getElementById("letra"+1).style.display = "inline-block"
+    for( var i=0;i<l;i++){
+        obj = document.getElementById("letra"+i).style.display = "inline-block"
     }
 }
 
 function jogar(){
-    jog = document.getElementById("letraJ");
+    //jog = document.getElementById("letraJ");
     jog.focus();
     if(jog.value==""){
-        alert("DIgite uma letra");
+        alert("Digite uma letra");
     }else{
         if(jogando){
-            var jog;
+            
             var obj;
             var letraTmp;
             var letra;
             var pesq;
-            letra = palavra.match(letra);
+            letra = jog.value;
+            jog.value = "";
             acertou = false;
+            pesq = palavra.match(letra);
             while(pesq!=null){
                 letraTmp = palavra.search(letra);
-                obj = document.getElementById("letra" = letraTmp).value = letra;
-                palavra = palavra.replace(letra, "0");
+                obj = document.getElementById("letra" + letraTmp).value = letra;
+                palavra = palavra.replace(letra, '0');
                 acertos++;
                 pesq = palavra.match(letra);
                 acertou = true;
@@ -114,7 +117,7 @@ function jogar(){
                 if(erros<7){
                     desenhos[erros].style.display = "block";
                 }else{
-                    document.getElementById("cabeca").src="cabeca.png";
+                    document.getElementById("cabeca").src="imgsJogo/cabeca2.png";
                     document.getElementById("dvmsg").innerHTML = "PERDEU";
                     jogando = false;
                 }
@@ -135,20 +138,20 @@ function inicia(){
     jog.focus();
     acertos = 0;
     erros = 0;
-    acertou = false;
+    acertos = false;
     document.getElementById("dvletrasdigitadas").innerHTML = "Letras Digitadas: ";
     pos = Math.round(Math.random()*qtde);
     palavra = biblioteca[pos];
     tam = palavra.length;
     defineLetras(tam);
-    document.getElementById("dvmsg").innerHTML + "";
+    document.getElementById("dvmsg").innerHTML = "";
     desenhos[1] = document.getElementById("cabeca");
     desenhos[2] = document.getElementById("corpo");
     desenhos[3] = document.getElementById("bracoE");
     desenhos[4] = document.getElementById("bracoD");
     desenhos[5] = document.getElementById("pernaE");
     desenhos[6] = document.getElementById("pernaD");
-    document.getElementById("cabeca").src = "cabeca1.png";
+    document.getElementById("cabeca").src="imgsJogo/cabeca1.png";
     for(var i=1; i<7; i++){
         desenhos[i].style.display = "none";
     }
@@ -198,12 +201,12 @@ window.addEventListener("load", inicia)
             <id id="dvletrasdigitadas">Letras Digitadas: </id>
         </div>
         <div id="dvForca">
-            <img id="cabeca" src="">
-            <img id="corpo" src="">
-            <img id="bracoE" src="">
-            <img id="bracoD" src="">
-            <img id="pernaE" src="">
-            <img id="pernaD" src="">
+            <img id="cabeca" src="imgsJogo/cabeca1.png">
+            <img id="corpo" src="imgsJogo/corpo.png">
+            <img id="bracoE" src="imgsJogo/bracoE.png">
+            <img id="bracoD" src="imgsJogo/bracoD.png">
+            <img id="pernaE" src="imgsJogo/pernaE.png">
+            <img id="pernaD" src="imgsJogo/pernaD.png">
 
         </div>
     </div>
