@@ -228,7 +228,19 @@
                 [document.getElementById("p4"), document.getElementById("p5"), document.getElementById("p6")],
                 [document.getElementById("p7"), document.getElementById("p8"), document.getElementById("p9")]
             ];
+            atualizaTabuleiro();
+            if(quemComeca == 1){
+            quemComeca = 0;
+            quemJoga = quemComeca;
+            document.getElementById("dvQuemComeca").innerHTML = "Quem começa: Jogador"
+        }else{
+            quemComeca = 1;
+            quemJoga = quemComeca;
+            document.getElementById("dvQuemComeca").innerHTML = "Quem começa: CPU"
+            cpuJoga();
         }
+    }
+
 
         window.addEventListener("load", inicia);
 
@@ -237,7 +249,7 @@
 <body>
 
     <div id="dvmenu">
-        <div id="dvQuemComeca"></div>
+        <div id="dvQuemComeca">Quem joga: </div>
         <button onclick="inicia()">Iniciar Jogo</button>
     </div>
     <div id="dvjogo">
