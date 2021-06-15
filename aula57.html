@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <style>
+        body{
+            margin: 0px;
+            background-color: #aaa;
+        }
+        #dvPainel{
+            display: flex;
+            height: 50px;
+            align-items: center;
+        }
+        .itemPainel{
+            margin: 5px;
+        }
+        #dvJogo{
+            width: 960px;
+            height: 500px;
+            border: 1px solid #000;
+            background-color: #000;
+        }
+        #dvBola{
+            position: absolute;
+            top: 240px;
+            left: 475px;
+            width: 20px;
+            height: 20px;
+            background-color: #888;            
+        }
+        .barra{
+            position: absolute;
+            width: 20px;
+            height: 140px;
+            background-color: #888;
+            top: 180px;
+        }
+        .esquerda{
+            left: 10px;
+        }
+        .direita{
+            left: 930px;
+        }
+
+    </style>
+
+    <script>
+
+        //elementos
+        var vbtIniciar;
+        var vbola;
+        var vcpu;
+        var vjogador;
+        var vPaineltxtPontos
+
+        //controle de animação
+
+        var game, frames;
+
+        //posições
+
+        var posBolaX, posBolaY;
+        var posJogadorX, posJogadorY;
+        var posCpuX, posCpuY;
+
+        //direção tecla
+
+        var dirJy;
+
+        //posições iniciais
+
+        var posJogIniY = 180, posCpuIniY = 180, posBolaIniX = 475, posBolaIniY = 240;
+
+        //tamanhos
+
+        var campoX = 0, campoY = 0, campoW = 960, campoH = 500;
+        var barraW = 20, barraH = 140, nolaW = 20, bolaH = 20;
+
+        //direção
+
+        var bolaX, bolaY;
+        var joY = 0, cpuY = 0;
+
+        //velocidade
+
+        var velBola, velCpu, velJogador;
+
+        //controle
+
+        var pontos = 0;
+        var tecla;
+
+    </script>
+
+</head>
+<body>
+    
+    <div id="dvJogo">
+        <div id="dvBola"></div>
+        <div id="dvJogador" class="barra esquerda"></div>
+        <div id="dvCpu" class="barra direita"></div>
+    </div>
+    <div id="dvPainel">
+        <div class="itemPainel">
+            <label>Pontos</label>
+            <input type="text" id="txtPontos" value="0" size="10">
+        </div>
+        <div class="itemPainel">
+            <button id="btIniciar">Iniciar</button>
+        </div>
+    </div>
+
+</body>
+</html>
