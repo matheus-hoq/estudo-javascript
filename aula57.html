@@ -83,7 +83,7 @@
         //direção
 
         var bolaX, bolaY;
-        var joY = 0, cpuY = 0;
+        var cpuY = 0;
 
         //velocidade
 
@@ -93,6 +93,68 @@
 
         var pontos = 0;
         var tecla;
+        jogo = false;
+
+        function controlajog(){
+            if(jogo){
+                posJogadorY += velJogador*dirJy;
+                vjogador.style.top = posJogadorY+"px";
+            }
+        }
+
+        function teclaDw(){
+            tecla = event.keyCode;
+            if(tecla==38){
+                dirJy=-1;
+            }else if(tecla==40){
+                dirJy=+1;
+            }
+        }
+
+        function teclaUp(){
+            tecla = event.keyCode;
+            if(tecla==38){
+                dirJy=0;
+            }else if(tecla==40){
+                dirJy=0;
+            }
+        }
+
+        function game(){
+            if(jogo){
+                controlajog()
+            }
+            frames = requestAnimationFrame(game);
+        }
+
+        function iniciaJogo(){
+            if(!jogo){
+                cancelAnimationFrame(frames);
+                jogo = true
+                dirJy = 0
+                posBolaX = posBolaIniX;
+                posBolaY = posBolaIniY;
+                posJogadorY = 0;
+                posCpuY = posCpuIniY;
+                game();
+            }
+        }
+
+        function inicializa(){
+            
+            velBola = velCpu = velJogador = 8;
+            vbtIniciar = document.getElementById("btIniciar")
+            vbtIniciar.addEventListener("click", iniciaJogo)
+            vjogador = document.getElementById("dvJogador")
+            vcpu = document.getElementById("dvCpu")
+            vbola = document.getElementById("dvBola")
+            vPaineltxtPontos = document.getElementById("txtPontos")
+            document.addEventListener("keydown", teclaDw)
+            document.addEventListener("keyup", teclaUp)
+
+        }
+
+        window.addEventListener("load", inicializa)
 
     </script>
 
