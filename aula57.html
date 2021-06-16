@@ -78,7 +78,7 @@
         //tamanhos
 
         var campoX = 0, campoY = 0, campoW = 960, campoH = 500;
-        var barraW = 20, barraH = 140, nolaW = 20, bolaH = 20;
+        var barraW = 20, barraH = 140, bolaW = 20, bolaH = 20;
 
         //direção
 
@@ -123,6 +123,38 @@
                     bolaX *= -1;
             }
 
+            //limites superior e inferior
+
+            if((posBolaY >= 480)||(posBolaY <= 0)){
+                bolaY *= -1;
+            }
+
+            //saiu da tela pela direita e esquerda
+
+            if(posBolaX >= (campoW - bolaW)){
+                velBola = 0;
+                posBolaX = posBolaIniX;
+                posBolaY = posBolaIniY;
+                posJogadorY = posJogIniY;
+                posCpuY = posCpuIniY;
+                pontos++;
+                vPaineltxtPontos.value = pontos;
+                jogo = false;
+                vjogador.style.top = posJogadorY+"px";
+                vcpu.style.top = posCpuY+"px";
+            }else if(posBolaX <= 0){
+                velBola = 0;
+                posBolaX = posBolaIniX;
+                posBolaY = posBolaIniY;
+                posJogadorY = posJogIniY;
+                posCpuY = posCpuIniY;
+                pontos--;
+                vPaineltxtPontos.value = pontos;
+                jogo = false;
+                vjogador.style.top = posJogadorY+"px";
+                vcpu.style.top = posCpuY+"px";
+            }
+
             vbola.style.top = posBolaY+"px";
             vbola.style.left = posBolaX+"px";
         }
@@ -156,6 +188,7 @@
         function iniciaJogo(){
             if(!jogo){
                 cancelAnimationFrame(frames);
+                velBola = velCpu = velJogador = 8;
                 jogo = true
                 dirJy = 0
                 bolaY = 0;
