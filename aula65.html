@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #painel{
+            width: 400px;
+            height: 500px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+    </style>
+    <script>
+
+        var painel;
+
+        function localizar(pos){
+            var c = pos.coords;
+            painel.innerHTML += "Loc: Lat: " + c.latitude + " - Lon: " + c.longitude + "<hr>";
+        }
+
+        function verifica(){
+            painel = document.getElementById("painel")
+            painel.innerHTML = "Nome do Browser: " + navigator.appName + "<hr>";
+            painel.innerHTML += "Versão do Browser: " + navigator.appVersion + "<hr>";
+            painel.innerHTML += "Cookies: " + navigator.cookieEnabled + "<hr>";
+            navigator.geolocation.getCurrentPosition(localizar) + "<hr>";
+            painel.innerHTML += "Idioma: " + navigator.language + "<hr>";
+            painel.innerHTML += "Online: " + navigator.onLine + "<hr>";
+            painel.innerHTML += "S.O.: " + navigator.platform + "<hr>";
+            painel.innerHTML += "Engine: " + navigator.product + "<hr>";
+            painel.innerHTML += "Agente: " + navigator.userAgent + "<hr>";
+
+        }
+
+        window.addEventListener("load", verifica)
+
+    </script>
+</head>
+<body>
+    
+    <div id="painel"></div>
+
+</body>
+</html>
