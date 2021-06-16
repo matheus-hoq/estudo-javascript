@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+
+        var minhaJanela1, minhaJanela2;
+
+        function abreJ(){
+        minhaJanela1 = window.open("aula62b.html", "_blank", "width=300, height = 300, top=300, left=300");
+        minhaJanela2 = window.open("aula62b.html", "_blank", "width=300, height = 300, top=300, left=300");
+        }
+        
+        function fechaJ(){
+        minhaJanela1.close();
+        minhaJanela2.close();
+        }
+
+    </script>
+</head>
+<body>
+
+    <button onclick="abreJ()">Abrir nova janela</button>
+    <button onclick="fechaJ()">Fechar janela</button>
+    <iframe name="cfb" src=""></iframe>
+</body>
+</html>
