@@ -73,7 +73,7 @@
 
         //posições iniciais
 
-        var posJogIniY = 180, posCpuIniY = 180, posBolaIniX = 475, posBolaIniY = 240;
+        var posJogIniY = 180, posCpuIniY = 180, posBolaIniX = 475, posBolaIniY = 240, posJogIniX = 0, posCpuIniX = 930;
 
         //tamanhos
 
@@ -98,8 +98,33 @@
         function controlajog(){
             if(jogo){
                 posJogadorY += velJogador*dirJy;
+                if(((posJogadorY+barraH)>= campoH) || ((posJogadorY)<= 0)){
+                    posJogadorY += velJogador*dirJy*(-1);
+                }
                 vjogador.style.top = posJogadorY+"px";
             }
+        }
+
+        function controlaBola(){
+            //movimentação bola
+            posBolaX += velBola * bolaX; 
+            posBolaY += velBola * bolaY;
+            
+            //colisão com jogador
+            if(
+                (posBolaX <= posJogadorX+barraW)&&((posBolaY+bolaH >= posJogadorY)&&(posBolaY <= posJogadorY + barraH))){
+                    bolaY = (((posBolaY+(bolaH/2)) - (posJogadorY+(barraH/2)))/16);
+                    bolaX *= -1;
+            }
+            //colisão com CPU
+            if(
+                (posBolaX >= posCpuX-barraW)&&((posBolaY+bolaH >= posCpuY)&&(posBolaY <= posCpuY + barraH))){
+                    bolaY = (((posBolaY+(bolaH/2)) - (posCpuY+(barraH/2)))/16);
+                    bolaX *= -1;
+            }
+
+            vbola.style.top = posBolaY+"px";
+            vbola.style.left = posBolaX+"px";
         }
 
         function teclaDw(){
@@ -122,7 +147,8 @@
 
         function game(){
             if(jogo){
-                controlajog()
+                controlajog();
+                controlaBola();
             }
             frames = requestAnimationFrame(game);
         }
@@ -132,10 +158,18 @@
                 cancelAnimationFrame(frames);
                 jogo = true
                 dirJy = 0
+                bolaY = 0;
+                if((Math.random()*10)<5){
+                    bolaX =-1;
+                }else{
+                    bolaX = 1;
+                }
                 posBolaX = posBolaIniX;
                 posBolaY = posBolaIniY;
-                posJogadorY = 0;
+                posJogadorY = posJogIniY;
                 posCpuY = posCpuIniY;
+                posJogadorX=posJogIniX;
+                posCpuX=posCpuIniX;
                 game();
             }
         }
