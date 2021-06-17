@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+
+        var painel, btnB, btnF, btnG;
+
+        function hB(){
+            window.history.back();
+        }
+
+        function hF(){
+            window.history.forward();
+        }
+
+        function hG(){
+            window.history.go(-2);
+        }
+
+        function inicia(){
+            btnB = document.getElementById("btnBack");
+            btnF = document.getElementById("btnForward");
+            btnG = document.getElementById("btnBack2");
+
+            btnB.addEventListener("click", hB)
+            btnF.addEventListener("click", hF)
+            btnG.addEventListener("click", hG)
+
+            painel = document.getElementById("info");
+            painel.innerHTML = history.length;
+        }
+
+        window.addEventListener("load", inicia);
+
+    </script>
+</head>
+<body>
+
+    <h1>Home - aula67.html</h1>
+    <p id="info"></p>
+
+    <a href="aula67.html">Home</a>
+    <a href="aula67a.html">Página 2</a>
+    <a href="aula67b.html">Página 3</a>
+    <button id="btnBack">Voltar</button>
+    <button id="btnForward">Avançar</button>
+    <button id="btnBack2">Voltar 2</button>
+    
+</body>
+</html>
