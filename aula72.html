@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <style></style>
+    <script>
+
+        function pagina(pg){
+            sessionStorage.nome = document.getElementById("fnome").value;
+            if(pg == 2){
+            window.location.assign("aula72a.html")
+        }else if(pg ==3){
+            window.location.assign("aula72b.html")
+        }
+        }
+
+        function inicia(){
+            document.getElementById("btnP2").addEventListener("click", function(){
+                pagina(2)
+            })
+            document.getElementById("btnP3").addEventListener("click", function(){
+                pagina(3)
+            })
+            document.getElementById("btnLimpar").addEventListener("click", function(){
+                sessionStorage.clear();
+            })
+        }
+        window.addEventListener("load", inicia)
+
+    </script>
+</head>
+<body>
+
+    <input type="text nam
+    fnome" id="fnome" size="20" maxlength="20"><br><br>
+    <button id="btnP2">Página 2</button>
+    <button id="btnP3">Página 3</button>
+    <button id="btnLimpar">Limpar SessionStorage</button>
+    
+</body>
+</html>
