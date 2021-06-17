@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <style>
+
+        body{
+            background-color: #f00;
+            color: #fff;
+        }
+        a{
+            color: #fff;
+        }
+
+    </style>
+    <script>
+
+        var aux = location.hash;
+        var dados = aux.split("#");
+        var v1 = dados[1];
+        var v2 = dados[2];
+        document.write(v1)
+        document.write("<br>")
+        var h = location.href
+        document.write(h)
+        document.write("<br>")
+        var o = location.origin// protocolos, hostname, porta
+        document.write(o)
+        document.write("<br>")
+        var p = location.pathname// caminho
+        document.write(p)
+        document.write("<br>")
+        var pr = location.protocol
+        document.write(pr)
+        document.write("<br>")
+
+        aux = location.search;
+        dados = aux.split("?");
+        v1 = dados[1].split("=")[1];
+        document.write(v1)
+        document.write("<hr>")
+
+    </script>
+</head>
+<body>
+
+    <h1>Página 2 - aula68a.html</h1>
+
+    <a href="aula68.html">Voltar</a>
+    
+</body>
+</html>
