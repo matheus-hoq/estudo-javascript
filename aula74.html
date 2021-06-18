@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+
+        function inicia(){
+            document.getElementById("btnDestaque").addEventListener("click", function(){
+                var num = document.getElementById("fnum").value
+                var p = document.getElementsByTagName("p");
+                for(var i=0;i<p.length;i++){
+                    p[i].removeAttribute("style");
+                }
+                var at = document.createAttribute("style");
+                at.value = "color: #f00; font-size: 30px;";
+                p[num].setAttributeNode(at);
+            })            
+        }
+
+        window.addEventListener("load", inicia)
+
+    </script>
+</head>
+<body>
+
+    <input type="text" id="fnum"><button id="btnDestaque">Destacar</button><br><br>
+
+    <p>Curso de Javascript</p>
+    <p>Curso de HTML/HTML5</p>
+    <p>Curso de CSS3</p>
+    <p>Curso de PHP/MySQL</p>
+    <p>Curso de C++</p>
+    <p>Curso de Photoshop</p>
+    <p>Curso de Unity/C#</p>
+    <p>Curso de Flash</p>
+
+    
+</body>
+</html>
