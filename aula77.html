@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+
+        function inicia(){
+
+            var elementos = document.getElementById("cfbcursos").childNodes;           
+            document.getElementById("cfbcursos").removeChild(elementos[1]);
+        }
+
+        window.addEventListener("load", inicia)
+
+    </script>
+</head>
+<body>
+
+    
+    <div id="cfbcursos">
+    <p id="p1">Curso de Javascript</p>
+    <p id="p2">Curso de HTML/HTML5</p>
+    <p id="p3">Curso de CSS3</p>
+    <p id="p4">Curso de PHP/MySQL</p>
+    <p id="p5">Curso de C++</p>
+    <p id="p6">Curso de Photoshop</p>
+    <p id="p7">Curso de Unity/C#</p>
+    <p id="p8">Curso de Flash</p>
+    </div>  
+
+    
+</body>
+</html>
