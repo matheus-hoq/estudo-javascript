@@ -7,6 +7,8 @@ var contBombas, painelContBombas, velB, tmpCriaBomba;
 var bombasTotal;
 var vidaPlaneta;
 
+var ie, isom;
+
 function teclaDw(){
     var tecla = event.keyCode;
 
@@ -62,6 +64,7 @@ function controlaBomba(){
             bombasTotal[i].style.top = pi+"px";
             if(pi>tamTelaH){
                 vidaPlaneta-=10;
+                criaExplosao(2,bombasTotal[i].offsetLeft,null)
                 bombasTotal[i].remove();
             }
         }
@@ -110,11 +113,57 @@ function colisaoTiroBomba(tiro){
                     ((tiro.offsetLeft+6)>=(bombasTotal[i].offsetLeft)) //direita tiro com esquerda bomba
                 )
             ){
+                criaExplosao(1,bombasTotal[i].offsetLeft-25,bombasTotal[i].offsetTop)
                 bombasTotal[i].remove();
                 tiro.remove();
             }
         }
     }
+}
+
+function criaExplosao(tipo,x,y){ //tipo 1 = ar, 2 = terra
+    if(document.getElementById("explosao"+(ie-3))){
+        document.getElementById("explosao"+(ie-3)).remove
+    }
+    var explosao = document.createElement("div");
+    var img = document.createElement("img");
+    var som = document.createElement("audio");
+    //atributos para div
+    var att1 = document.createAttribute("class");
+    var att2 = document.createAttribute("style");
+    var att3 = document.createAttribute("id");
+    //atributo para imagem
+    var att4 = document.createAttribute("src");4
+    //atributo para audio
+    var att5 = document.createAttribute("src");
+    var att6 = document.createAttribute("id");
+
+    att3.value = "explosao"+ie;
+
+    if(tipo==1){
+        att1.value="explosaoAr";
+        att2.value = "top:"+y+"px;left:"+x+"px;"
+        att4.value = "explosao_ar.gif?"+new Date();
+    }else{
+        att1.value="explosaoChao";
+        att2.value = "top:"+(tamTelaH-57)+"px;left:"+(x-17)+"px;"
+        att4.value = "explosao_chao.gif?"+new Date();
+    }
+    att5.value = "exp1.mp3?"+new Date();
+    att6.value="som"+isom;
+    explosao.setAttributeNode(att1);
+    explosao.setAttributeNode(att2);
+    explosao.setAttributeNode(att3);
+    img.setAttributeNode(att4);
+    som.setAttributeNode(att5);
+    som.setAttributeNode(att6);
+    explosao.appendChild(img);
+    explosao.appendChild(som);
+    document.body.appendChild(explosao);
+    document.getElementById("som"+isom).play();
+
+    ie++;
+    isom++;
 }
 
 function controlaJogador(){
@@ -162,6 +211,10 @@ function inicia(){
     //controles planeta
 
     vidaPlaneta = 300;
+
+    //controles de explosao
+
+    ie=isom=0;
 
     gameLoop()
 
