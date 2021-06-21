@@ -1,4 +1,7 @@
-var diryJ, dirxJ;
+var diryJ, dirxJ, jog, velJ, pjx, pjy;
+var tamTelaW, tamTelaH;
+var jogo;
+var frames;
 
 function teclaDw(){
     var tecla = event.keyCode;
@@ -25,3 +28,37 @@ function teclaUp(){
         dirxJ=0
     }
 }
+
+function controlaJogador(){
+    //pjy+=
+}
+
+function gameLoop(){
+    if(jogo){
+        //funções de controle
+
+    }
+    frames = requestAnimationFrame(gameLoop)
+}
+
+function inicia(){
+    jogo = false;
+
+    //Ini tela
+    tamTelaH = window.innerHeight;
+    tamTelaW = window.innerWidth;
+
+    //ini jogador
+
+    dirxJ = diryJ = 0
+    pjx = tamTelaW/2
+    pjy = tamTelaH/2
+    velJ = 5;
+    jog = document.getElementById("naveJog");
+    jog.style.top = pjy+"px";
+    jog.style.left = pjx+"px";
+}
+
+window.addEventListener("load", inicia);
+document.addEventListener("keydown", teclaDw);
+document.addEventListener("keyup", teclaUp);
