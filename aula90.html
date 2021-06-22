@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <style>
+
+        .carro{
+            width: 371px;
+            height: 750px;
+            display: inline;
+            cursor: pointer;
+        }
+        #painel{
+            border: solid 3px #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+        }
+
+    </style>
+    <script>
+
+        function definePainel(){
+            var obj = event.target;
+            var painel = document.getElementById("painel");
+            painel.innerHTML="Modelo: " + obj.dataset.modelo+"<br>";
+            painel.innerHTML+="Cor: " + obj.dataset.cor+"<br>";
+            painel.innerHTML+="Potencia: " + obj.dataset.pot+"cavalos<br>";
+            painel.innerHTML+="Velocidade: " + obj.dataset.vel+"km/h";
+        }
+
+        function inicia(){
+            document.getElementById("c1").addEventListener("click", definePainel);
+            document.getElementById("c2").addEventListener("click", definePainel);
+            document.getElementById("c3").addEventListener("click", definePainel);
+            document.getElementById("c4").addEventListener("click", definePainel);
+        }
+
+        window.addEventListener("load", inicia);
+
+    </script>
+</head>
+<body>
+
+    
+    <div id="painel"></div>
+    <div id="c1" class="carro"><img src="imgs/s1.jpg" data-modelo="Popular" data-cor="Branco" data-pot="80" data-vel="120"></div>
+    <div id="c2" class="carro"><img src="imgs/s2.jpg" data-modelo="Corrida" data-cor="Vermelho" data-pot="350" data-vel="320"></div>
+    <div id="c3" class="carro"><img src="imgs/s3.jpg" data-modelo="Família" data-cor="Amarelo" data-pot="110" data-vel="180"></div>
+    <div id="c4" class="carro"><img src="imgs/s4.jpg" data-modelo="Esportivo" data-cor="Preto" data-pot="220" data-vel="260"></div>
+    
+</body>
+</html>
