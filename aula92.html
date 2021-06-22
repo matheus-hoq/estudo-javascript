@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <style>
+
+        .carro{
+            width: 250px;
+            margin-bottom: 50px;
+        }
+        
+        .menu_item{
+            height: 100%;
+            cursor: pointer;
+        }
+        #menu{
+            border: solid 3px #000;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+            background-color: #fff;
+        }
+        body{
+            padding: 0px;
+        }
+
+    </style>
+    <script>
+
+
+        function mostrar(){
+            for(var i=1;i<5;i++){
+                document.getElementById("c"+i).hidden = true;
+            }
+            var obj = event.target.dataset.nome;
+            document.getElementById(obj).hidden = false;
+        }
+
+        function inicia(){
+            for(var i=1;i<5;i++){
+                document.getElementById("c"+i).hidden = true;
+            }
+
+            document.getElementById("btnc1").addEventListener("click", mostrar)
+            document.getElementById("btnc2").addEventListener("click", mostrar)
+            document.getElementById("btnc3").addEventListener("click", mostrar)
+            document.getElementById("btnc4").addEventListener("click", mostrar)
+
+            
+        }
+
+        window.addEventListener("load", inicia);
+
+    </script>
+</head>
+<body>
+
+    <div id="menu">
+        <img id="btnc1" data-nome="c1" src="imgs/s1.jpg" class="menu_item">
+        <img id="btnc2" data-nome="c2" src="imgs/s2.jpg" class="menu_item">
+        <img id="btnc3" data-nome="c3" src="imgs/s3.jpg" class="menu_item">
+        <img id="btnc4" data-nome="c4" src="imgs/s4.jpg" class="menu_item">
+    </div>
+    
+    <div id="painel"></div>
+    <div id="c1" class="carro"><img src="imgs/s1.jpg"></div>
+    <div id="c2" class="carro"><img src="imgs/s2.jpg"></div>
+    <div id="c3" class="carro"><img src="imgs/s3.jpg"></div>
+    <div id="c4" class="carro"><img src="imgs/s4.jpg"></div>
+    
+</body>
+</html>
