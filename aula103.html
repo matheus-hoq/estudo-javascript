@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+        
+        //Arrow Function = Função de Seta
+        const soma = (...num) => {
+            let r = 0
+            for(n of num)
+            r+=n
+            return r
+        }
+
+        const par = num => {
+            if(num%2 == 0)
+                return true
+            else
+                return false
+        }
+
+        console.log(soma(2,3,2,2,4,4,5,4,5))
+        console.log(par(2) ? "É par" : "Não é par")
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
