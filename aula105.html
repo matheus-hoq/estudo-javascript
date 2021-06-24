@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+        
+        const Carro = {
+            marca: "VW",
+            modelo: "Golf",
+            cor: "Cinza",
+            cambio: "Automático",
+            info: function(){
+                console.log("Marca: " + this.marca)
+                console.log("Modelo: " + this.modelo)
+            }
+        }
+
+        let {marca,modelo} = Carro
+
+        marca = "Honda"
+        modelo = "HRV"
+
+        console.log(Carro)
+        console.log(marca)
+        console.log(modelo)
+
+        //delete Caracteristicas.cor
+
+        // const Carro = Object.assign(Veiculo, Caracteristicas)
+
+        // console.log(Carro)
+
+        //primeira parte da aula
+
+        //Carro.info()
+
+        // const c2 = Object.create(Carro)
+        // const c3 = Object.create(Carro)
+
+        // c2.marca = "Honda"
+        // c2.modelo = "HRV"
+
+        // c3.marca = "Fiat"
+        // c3.modelo = "Toro"
+
+        // Carro["marca"] = "Ford"
+        // Carro["modelo"] = "Ranger"
+
+        // Carro.info()
+        // c2.info()
+        // c3.info()
+        // console.log(Carro["marca"])
+        // console.log(Carro["modelo"])
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
