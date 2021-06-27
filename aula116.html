@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+        
+        function contar(n){
+            let cont = 0
+            for(let i=0;i<n;i++){
+                cont++
+            }
+            return cont
+        }
+
+        function contarT(n){
+            let cont = 0
+            let t = setTimeout(()=>{
+                for(let i=0;i<n;i++){
+                cont++
+            }
+            },2000)
+            return cont
+        }
+
+        function contarP(n){
+            let cont = 0
+            let p = new Promise((resolve, rejected) => {
+                for(let i=0;i<n;i++){
+                    cont++
+                }
+                if(cont == n){
+                    resolve(cont)
+                }else{
+                    rejected('Erro')
+                }
+            })
+            return p
+        }
+
+        function contarPT(n){
+            let cont = 0
+            let p = new Promise((resolve, rejected) => {
+
+                let t = setTimeout(()=>{
+                    for(let i=0;i<n;i++){
+                    cont++
+                }
+                if(cont == n){
+                    resolve(cont)
+                }else{
+                    rejected('Erro')
+                }
+                },2000)
+            })
+            return p
+        }
+
+        function somaPositivos(n1,n2){
+            let p = new Promise((res,rej) => {
+                if(n1>0 && n2>=0){
+                    res(n1+n2)
+                }else{
+                    rej('Erro')
+                }
+            })
+            return p
+        }
+
+        console.log(contar(10000))
+        console.log(contarT(10))
+
+        contarPT(10)
+            .then(sucesso => console.log('Sucesso: ' + sucesso))
+            .catch(erro => console.log(erro))
+
+        // somaPositivos(10,2)
+        // .then(sucesso => console.log('Sucesso: ' + sucesso))
+        // .catch(erro => console.log(erro))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
