@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFB Cursos - Javascript</title>
+    <script>
+        
+        let pessoa = [
+            {nome: 'Math', idade: 20},
+            {nome: 'Scarlindo', idade: 30},
+            {nome: 'Gromilda', idade: 25},
+            {nome: 'Cleber', idade: 18},
+
+        ]
+
+        let nomes = pessoa.reduce((p1,p2)=>{
+            p1.push(p2.nome)
+            return p1
+        },[])
+
+        let idades = pessoa.reduce((p1,p2)=>{
+            p1.push(p2.idade)
+            return p1
+        },[])
+        console.log(nomes)
+        console.log(idades)
+        // let num = [0,1,2,3,4,5]
+        // let soma = num.reduce((n1,n2)=>{
+        //     console.log(n1 + ' + ' + n2)
+        //     return n1+n2
+        //     console.log('------------------------')
+        // })
+
+        // console.log(soma)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
