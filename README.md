@@ -1,3 +1,3 @@
 # estudo-javascript
 Iniciando meus estudos com javascript
-// talvez eu saiba
+// será que eu sei mesmo??
